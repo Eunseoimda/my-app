@@ -1,0 +1,85 @@
+# DOM 요소 선택 방법 요약
+
+### 1️⃣ `getElementById`
+
+* **용도:** id 속성을 가진 단일 요소 선택
+* **반환값:** **단일 DOM 요소** (없으면 `null`)
+* **사용 예시:**
+
+```javascript
+const header = document.getElementById('main-header');
+```
+
+* **특징:**
+
+  * id는 문서 내에서 유일해야 하므로 항상 하나만 선택됨
+  * 빠름, 가장 오래된 DOM 선택 방식
+
+---
+
+### 2️⃣ `getElementsByClassName`
+
+* **용도:** 특정 클래스 이름을 가진 요소 모두 선택
+* **반환값:** **HTMLCollection** (유사 배열)
+* **사용 예시:**
+
+```javascript
+const boxes = document.getElementsByClassName('box');
+console.log(boxes[0]); // 첫 번째 box 접근
+```
+
+* **특징:**
+
+  * 실시간(라이브) 컬렉션: DOM에 변화가 생기면 자동 업데이트됨
+  * 여러 요소 선택 가능하지만 배열이 아니므로 `forEach` 바로 사용 불가 (배열로 변환 필요)
+
+---
+
+### 3️⃣ `querySelector`
+
+* **용도:** CSS 선택자 사용해서 **첫 번째 요소 하나만 선택**
+* **반환값:** 단일 DOM 요소 (없으면 `null`)
+* **사용 예시:**
+
+```javascript
+const firstBox = document.querySelector('.box');
+const mainHeader = document.querySelector('#main-header');
+```
+
+* **특징:**
+
+  * id, 클래스, 태그, 복합 선택자(CSS) 모두 사용 가능
+  * 첫 번째 매칭 요소만 반환
+
+---
+
+### 4️⃣ `querySelectorAll`
+
+* **용도:** CSS 선택자 사용해서 **모든 매칭 요소 선택**
+* **반환값:** **NodeList** (유사 배열)
+* **사용 예시:**
+
+```javascript
+const allBoxes = document.querySelectorAll('.box');
+allBoxes.forEach(box => console.log(box));
+```
+
+* **특징:**
+
+  * CSS 선택자 자유롭게 사용 가능
+  * NodeList는 `forEach` 사용 가능
+  * **정적 컬렉션**: DOM 변화가 자동으로 반영되지 않음
+
+---
+
+### 🔹 요약 비교
+
+| 메서드                    | 선택 가능   | 반환형            | 특징             |
+| ---------------------- | ------- | -------------- | -------------- |
+| getElementById         | id      | DOM 요소         | 유일, 가장 빠름      |
+| getElementsByClassName | 클래스     | HTMLCollection | 라이브 컬렉션, 여러 요소 |
+| querySelector          | CSS 선택자 | DOM 요소         | 첫 번째 요소만 선택    |
+| querySelectorAll       | CSS 선택자 | NodeList       | 모든 요소 선택, 정적   |
+
+---
+
