@@ -81,5 +81,65 @@ allBoxes.forEach(box => console.log(box));
 | querySelector          | CSS 선택자 | DOM 요소         | 첫 번째 요소만 선택    |
 | querySelectorAll       | CSS 선택자 | NodeList       | 모든 요소 선택, 정적   |
 
+# 배열과 유사 배열 반복: forEach 사용법 요약
 ---
+
+### 1️⃣ 기본 구조
+
+```javascript
+array.forEach(function(item, index){
+    // item: 현재 요소
+    // index: 요소의 순서
+    console.log(item, index);
+});
+```
+
+* **item** → 반복 중인 현재 값
+* **index** → 몇 번째 값인지
+* **function 안의 코드** → 반복하면서 실행할 동작
+
+---
+
+### 2️⃣ 예시: 배열
+
+```javascript
+const fruits = ['사과', '바나나', '오렌지'];
+
+fruits.forEach(function(fruit, i){
+    console.log(i, fruit);
+});
+```
+
+**출력**
+
+```
+0 '사과'
+1 '바나나'
+2 '오렌지'
+```
+
+---
+
+### 3️⃣ 예시: DOM 요소(NodeList)
+
+```javascript
+const boxes = document.querySelectorAll('.box');
+
+boxes.forEach(function(box){
+    box.style.backgroundColor = 'yellow'; // 모든 박스 배경 노란색
+});
+```
+
+* `querySelectorAll`로 가져온 NodeList도 `forEach` 가능
+* 하지만 `getElementsByClassName`이나 `getElementsByTagName`으로 가져온 HTMLCollection은 **바로 forEach 사용 불가**, 배열로 바꿔야 함
+
+```javascript
+const boxes = document.getElementsByClassName('box');
+Array.from(boxes).forEach(box => {
+    box.style.backgroundColor = 'yellow';
+});
+```
+
+---
+
 
