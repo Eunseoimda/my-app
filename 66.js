@@ -19,3 +19,17 @@ addNewTodo("코딩하기");
 // const sum = (a , b) => {
 //     return a + b;
 // };
+const obj = {
+  name: 'JS',
+  
+  regularFunc: function() {
+    console.log('일반 함수 this:', this.name);
+  },
+  
+  arrowFunc: () => {
+    console.log('화살표 함수 this:', this.name);
+  }
+};
+
+obj.regularFunc(); // "JS" → obj에 바인딩
+obj.arrowFunc();   // undefined → this는 상위 스코프(global) 참조
