@@ -1,18 +1,34 @@
-const toDoList =document.getElementById("to-do-list");
+// const toDoList =document.getElementById("id");
 
-const addNewTodo = (text)=>{ // => 스타일은 fat arrow
+// const addNew= (text)=>{ // => 스타일은 fat arrow
 
-    const li = document.createElement("li"); //여기서 li는 tagname
-    li.textContent = text;
+//     const li = document.getElementById('id'); //여기서 li는 tagname
+//     li.textContent = text;
     
-    toDoList.appendChild(li);
+//     toDoList.appendChild(li);
 
-}
-//Arrow Functions vs Regular Functions
-addNewTodo("운동하기");
-addNewTodo("독서하기");
-addNewTodo("코딩하기"); 
- 
+// }
+// //Arrow Functions vs Regular Functions
+
+// addNew("운동하기");
+// addNew("독서하기");
+// addNew("코딩하기"); 
+const addNewList = (Text) => {
+  const todayList = document.getElementById("to-do-list");
+  const li = document.createElement("li");
+  li.innerHTML = Text;
+  todayList.appendChild(li);
+
+};
+addNewList("메이플스토리2");
+
+const willNewList = (Text) => {
+  const TomorrowList = document.getElementById('will-do-list');
+  const will = document.createElement('li');
+  will.innerText = Text;
+  TomorrowList.appendChild(will);
+};
+willNewList("마비노기모바일");
 // function sum(a,b){
 //     return a+b;
 // }
