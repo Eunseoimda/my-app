@@ -4,9 +4,11 @@
 
 body {
   display: flex;
+  /* 콘테이너 */
   justify-content: center;
+  /* 중앙정렬  */
   align-items: center;
-  height: 100vh;
+  height: 100vh; 
   margin: 0;
   background-size: cover;
   background-position: center;
