@@ -1,0 +1,14 @@
+.done {
+	opacity : 0.5;
+	text-decoration : line-through;
+}
+  
+//add remove.toggle
+console.log(today.classlist);
+console.log(today.children[1].classList;
+
+comst item = tomorrw.children[1];
+item.classList.add('done', 'asdf');
+
+
+//today.children[1].className = 'done';
