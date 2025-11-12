@@ -1,4 +1,6 @@
 
+document.addEventListener('DOMContentLoaded', () => {
+
 // data-field 속성을 가진 태그들을 모두 찾아서 fields에 저장
 
 // 결과는 배열 비슷한 NodeList (예: <b>, <b>, <b> 총 3개)
@@ -35,8 +37,14 @@ const btns = document.querySelectorAll('.btn');
 
 for (let btn of btns) {
     const status = btn.dataset.status;
-    btn.onclick = function () {
-    fields[2].textContent = status;
-    fields[2].dataset.status = status;
-    }
-};
+    btn.addEventListener('click', function () {
+        const statusField = document.querySelector('[data-field="status"]');
+        if (!statusField) return;
+        // 화면에 표시할 텍스트와 내부 task 객체 모두 업데이트
+        statusField.textContent = status;
+        statusField.dataset.status = status;
+        task.status = status;
+    });
+}
+
+});
