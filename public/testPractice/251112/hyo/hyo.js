@@ -9,18 +9,16 @@
 // 2. removeTitle 함수
 function showTitle(e) {
 	// 여기에 코드를 작성하세요
-    const target = e.target;
+    const target = e.target.closest("[data-title]");
 
-    if (target.dataset.title) { 
-        const el = e.target.closet("[data-title]");
+    if (target.dataset.title) {
+        const el = document.createElement("span");
         if (!el) return;
-        if (!el.dataset.title) return;
-        if (!el.querySelector('.title')) return; 
-
-        const span = document.createElement("span");
-        el.className('title'); //이 요소 내부에 title 클래스
-        el.textContent = el.dataset.title;
-        el.append(span); //    
+        el.querySelector('.title');
+        el.classList.add('title'); //이 요소 내부에 title 클래스
+        
+        el.textContent = target.dataset.title;
+        e.target.append(el); //    
 
     }
 }
@@ -30,6 +28,7 @@ function removeTitle(e) {
     const lastChild = target.lastElementChild
 	// 여기에 코드를 작성하세요
     if(target.dataset.title){
+      el.querySelector('.title');
         lastChild.remove();
     }
 }
