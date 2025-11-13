@@ -1,0 +1,29 @@
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#p1").text("asdf");
+    });
+    $("#btn2").click(function(){
+        $("#p2").text("<h3>asdf.</h3>");
+    });
+    $("#btn3").click(function(){
+        $("#p3").html("<span style = 'color:green;'>asdf.</span>");
+    });
+    $("#btn4").click(function(){
+        $("#phone").val("010-1234-5678");
+    });
+});
+</script>
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p>전화번호 : <input type= "text" id="phone"></p>
+    <button id="btn1">텍스트 변경</button>
+    <button id="btn2">텍스트 변경2</button>         
+    <button id="btn3">HTML 변경</button>
+    <button id="btn4">입력상자 값 변경</button>
+</body>
