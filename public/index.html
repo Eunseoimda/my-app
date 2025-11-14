@@ -27,6 +27,16 @@
     <title>React App</title>
   </head>
   <body>
+      <button id="runBtn">Node.js 실행</button>
+
+  <script>
+    const btn = document.getElementById('runBtn');
+    btn.addEventListener('click', () => {
+      fetch('/run-task')
+        .then(res => res.text())
+        .then(data => alert(data));
+    });
+  </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
